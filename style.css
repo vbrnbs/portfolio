@@ -2,8 +2,8 @@
 
 :root {
     --background: #EFEFEF;
-    --onbackground-primary: #C4C4C4;
-    --onbackground-secondary: #F9F8F8;
+    --onbackground-primary: #f5f5f5;
+    --onbackground-secondary: #929292;
     --text-primary: #000;
     --text-secondary: #202020;
 }
@@ -58,6 +58,10 @@ canvas {
 
 .text-secondary {
   color: var(--text-secondary);
+}
+
+#and {
+  color: rgb(155, 11, 11);
 }
 
 section {
@@ -140,20 +144,20 @@ input:checked + .slider {
 input:checked + .slider::before {
     transform: translateX(16px);
   }
-  
+ 
 .slider.round {
     border-radius: 34px;
   }
-  
+
 .slider.round::before {
     border-radius: 50%;
-
+}
 .fas-fa-sun {
     font-size: 30px;
     margin-right: 5px;
 }
 
-/* Hamburger Icon */
+/* Hamburger Icon *//*
 .hamburger-menu {
     height: 10px;
 }
@@ -186,17 +190,29 @@ input:checked + .slider::before {
 .container {
     top: 100px;
 }
-
-@media only screen and (min-width:632px) {
+*/
+@media only screen and (max-width:632px) {
   .overlay {
-    display: none;
-    background-color: yellow;
+    flex-direction: column;
+    justify-content: center;
+    height: 90%;
+    top: 10%;
+    left: 0%;
+    text-align: center;
+    vertical-align: center;
   }
-  .theme-switch-wrapper {  
-    display: none;
-    right: 250px;
+  #idPhoto {
+    width: 30%;
   }
-  body {
-    background-color: yellow;
+  .main-text {
+    width: 50%;
+    font-size: auto;
+  }
+  .hero-text {
+    padding: 0;
+    text-align: right;
+  }
+  .text-secondary {
+    text-align: left;
   }
 }

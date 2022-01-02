@@ -12,19 +12,25 @@
     </head>
     <body>
         <!-- HERO -->
+        <!-- Hero Animaton Processing Canvas -->
         <canvas id="myCanvas" data-processing-sources="mySketch.pde"></canvas> 
+        <!-- Introduction Overlay -->
         <div class="overlay">
+            <!-- ID Photo -->
             <img id="idPhoto" src="./assets/CV.jpg" alt="photo">
+            <!-- Introduction Text -->
             <div class="main-text">
                 <p class="hero-text">Barnabás Várszegi</p>
-                <p class="hero-text text-secondary">UX/UI &<br>Frontend Developer</p>
+                <p class="hero-text text-secondary">UX/UI <span id="and">&</span><br>Frontend Developer</p>
             </div>
         </div>
         <!-- Light/Dark Mode Toggle Switch -->
         <div class="theme-switch-wrapper">
+            <!-- Theme Icon -->
             <span id="toggle-icon">
                 <i class="fas-fa-sun"></i>
             </span>
+            <!-- Theme Toggle Button -->
             <label class="theme-switch">
                 <input type="checkbox">
                 <div class="slider round"></div>

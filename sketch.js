@@ -11,7 +11,7 @@ background = true;
 //Theme switch
 toggleSwitch.addEventListener('change', backgroundThemeSwitch);
 canvas.addEventListener('click', backgroundThemeSwitch);
-//overlay.addEventListener('click', backgroundThemeSwitch);
+overlay.addEventListener('click', backgroundThemeSwitch);
 
 // Hamuburger Icon 'Menu'
 function menu(x) {
