@@ -24,35 +24,41 @@
                 <p class="hero-text text-secondary">UX/UI <span id="and">&</span><br>Frontend Developer</p>
             </div>
         </div>
-        <!-- Light/Dark Mode Toggle Switch -->
-        <div class="theme-switch-wrapper">
-            <!-- Theme Icon -->
-            <span id="toggle-icon">
-                <i class="fas-fa-sun"></i>
-            </span>
-            <!-- Theme Toggle Button -->
-            <label class="theme-switch">
-                <input type="checkbox">
-                <div class="slider round"></div>
-            </label>
-        </div>
         <!-- Navigation -->
         <nav>
+             <!-- Light/Dark Mode Toggle Switch -->
+            <div class="theme-switch-wrapper">
+                <!-- Theme Icon -->
+                <span id="toggle-icon">
+                    <i class="fas-fa-sun"></i>
+                </span>
+                <!-- Theme Toggle Button -->
+                <label class="theme-switch">
+                    <input type="checkbox">
+                    <div class="slider round"></div>
+                </label>
+            </div>
             <!-- Menu Item -->
-            <div class="hamburger-menu">
-                <div class="hamburger-container" onclick="menu(this)">
+            <div class="hamburger-menu overlay-slide-left">
+                <div class="hamburger-container menu-bars" id="menu-bars">
                     <div class="bar1"></div>
                     <div class="bar2"></div>
                     <div class="bar3"></div>
                 </div>
-                <div class="nav-links">
-                    <div id="about">about</div>
-                    <div id="skills">skills</div>
-                    <div id="works">works</div>
-                    <div id="contact">contact</div>
+                <div id="nav-overlay">
+                    <div class="nav-links" hidden>
+                        <ul>
+                            <li id="nav-1" class="slide-out-1"><a href="#home">home</a></li>
+                            <li id="nav-2" class="slide-out-2"><a href="#about">about</a></li>
+                            <li id="nav-3" class="slide-out-3"><a href="#skills">skills</a></li>
+                            <li id="nav-4" class="slide-out-4"><a href="#projects">projects</a></li>
+                            <li id="nav-5" class="slide-out-5"><a href="#contact">contact</a></li>
+                          </ul>
+                    </div>
                 </div>
             </div>
         </nav>
+        
         <!-- #ABOUT Hero Container -->
         <section id="about-container">
             <!-- Main Elements -->

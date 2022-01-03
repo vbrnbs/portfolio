@@ -1,10 +1,11 @@
-
 final int MAX_CIRCLE_CNT = 2500, MIN_CIRCLE_CNT = 100, 
   MAX_VERTEX_CNT = 30, MIN_VERTEX_CNT = 3;
 
 
 int circleCnt, vertexCnt;
 float heroPosition = 0.7;
+int frameR = 60;
+int frameDiv = 400;
 
 void setup() {
   size(window.innerWidth, window.innerHeight)
@@ -13,13 +14,14 @@ void setup() {
 void draw() {
   size(window.innerWidth, window.innerHeight)
   resize();
+  frameRate(frameR);
   background(bg);
   translate(width * heroPosition, height / 2);
 
   updateCntByMouse();
 
   for (int ci = 0; ci < circleCnt; ci++) {
-    float time = float(frameCount) / 100;
+    float time = float(frameCount) / frameDiv;
     float thetaC = map(ci, 0, circleCnt, 0, TAU);
     float scale = 300;
 
@@ -41,10 +43,9 @@ void draw() {
 }
 
 void updateCntByMouse() {
-  float xoffset = abs(mouseX - width / 2), yoffset = abs(mouseY - height / 2);
+  float xoffset = abs(mousex - width / 2), yoffset = abs(mousey - height / 2);
   circleCnt = int(map(xoffset, 0, width / 2, MAX_CIRCLE_CNT, MIN_CIRCLE_CNT));
-  vertexCnt = int(map(yoffset, 0, height / 2, MAX_VERTEX_CNT, MIN_VERTEX_CNT));
-  
+  vertexCnt = int(map(yoffset, 0, height / 2, MAX_VERTEX_CNT, MIN_VERTEX_CNT));  
 }
 
 PVector getCenterByTheta(float theta, float time, float scale) {
@@ -71,9 +72,15 @@ color getColorByTheta(float theta, float time) {
 
 void resize() {
     if (window.innerWidth < 700){
+        MAX_CIRCLE_CNT = 1000;
         heroPosition =  0.5;
+        frameR = 30;
+        frameDiv = 50;
     } else {
+        MAX_CIRCLE_CNT = 2500;
         heroPosition =  0.7;
+        frameR = 60;
+        frameDiv = 400;
     }
 }
 
