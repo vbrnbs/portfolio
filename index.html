@@ -11,11 +11,45 @@
         <link rel="stylesheet" href="./style.css">
     </head>
     <body>
+                <!-- Navigation -->
+                <nav>
+                    <!-- Light/Dark Mode Toggle Switch -->
+                   <div class="theme-switch-wrapper">
+                       <!-- Theme Icon -->
+                       <span id="toggle-icon">
+                           <i id="theme-icon" class="fas fa-sun"></i>
+                       </span>
+                       <!-- Theme Toggle Button -->
+                       <label class="theme-switch">
+                           <input type="checkbox">
+                           <div class="slider round"></div>
+                       </label>
+                   </div>
+                   <!-- Menu Item -->
+                   <div class="hamburger-menu  overlay-slide-left">
+                       <div class="hamburger-container menu-bars" id="menu-bars">
+                           <div class="bar1"></div>
+                           <div class="bar2"></div>
+                           <div class="bar3"></div>
+                       </div>
+                       <div id="nav-overlay">
+                           <div class="nav-links" hidden>
+                               <ul>
+                                   <li id="nav-1" class="slide-out-1"><a>home</a></li>
+                                   <li id="nav-2" class="slide-out-2"><a>about</a></li>
+                                   <li id="nav-3" class="slide-out-3"><a>skills</a></li>
+                                   <li id="nav-4" class="slide-out-4"><a>projects</a></li>
+                                   <li id="nav-5" class="slide-out-5"><a>contact</a></li>
+                                 </ul>
+                           </div>
+                       </div>
+                   </div>
+               </nav>
         <!-- HERO -->
         <!-- Hero Animaton Processing Canvas -->
         <canvas id="myCanvas" data-processing-sources="mySketch.pde"></canvas> 
         <!-- Introduction Overlay -->
-        <div class="overlay">
+        <section class="overlay">
             <!-- ID Photo -->
             <img id="idPhoto" src="./assets/CV.jpg" alt="photo">
             <!-- Introduction Text -->
@@ -23,66 +57,40 @@
                 <p class="hero-text">Barnabás Várszegi</p>
                 <p class="hero-text text-secondary">UX/UI <span id="and">&</span><br>Frontend Developer</p>
             </div>
-        </div>
-        <!-- Navigation -->
-        <nav>
-             <!-- Light/Dark Mode Toggle Switch -->
-            <div class="theme-switch-wrapper">
-                <!-- Theme Icon -->
-                <span id="toggle-icon">
-                    <i class="fas-fa-sun"></i>
-                </span>
-                <!-- Theme Toggle Button -->
-                <label class="theme-switch">
-                    <input type="checkbox">
-                    <div class="slider round"></div>
-                </label>
-            </div>
-            <!-- Menu Item -->
-            <div class="hamburger-menu overlay-slide-left">
-                <div class="hamburger-container menu-bars" id="menu-bars">
-                    <div class="bar1"></div>
-                    <div class="bar2"></div>
-                    <div class="bar3"></div>
-                </div>
-                <div id="nav-overlay">
-                    <div class="nav-links" hidden>
-                        <ul>
-                            <li id="nav-1" class="slide-out-1"><a href="#home">home</a></li>
-                            <li id="nav-2" class="slide-out-2"><a href="#about">about</a></li>
-                            <li id="nav-3" class="slide-out-3"><a href="#skills">skills</a></li>
-                            <li id="nav-4" class="slide-out-4"><a href="#projects">projects</a></li>
-                            <li id="nav-5" class="slide-out-5"><a href="#contact">contact</a></li>
-                          </ul>
-                    </div>
-                </div>
-            </div>
-        </nav>
-        
+        </section>
+
+  
         <!-- #ABOUT Hero Container -->
-        <section id="about-container">
+        <section class="about">
             <!-- Main Elements -->
-            <div id="about-content">
-                <h3 id="sayhi">HEY! I’m Barnabás<br>
-                    DESIGNER TURNED DEVELOPER</h3>
-                <p id="introduction">I am tech savvy, curiosity driven FRONT END DEVELOPER, who is not only passionate about designing unique web experiences and interactive systems, but also able to realize; build and deploy them.<br>
-                    I have a degree in Art & Technology from Denmark (BA), realized varisous interactive installations and other creative coding projects  in Hungary and Portugal, completed web-developer several courses in 2020-21.<br>
+            <div class="about-content">
+                <h3 id="sayhi">HEY! I AM BARNABÁS,<br>
+                    A DESIGNER TURNED DEVELOPER</h3>
+                <p class="introduction">I am tech savvy, curiosity driven WEB DEVELOPER, who is not only passionate about designing unique web experiences and interactive systems, but also able to realize; build and deploy them.<br>
+                    <br>I am also interested about digital-arts, creative coding and generative algorithms. My background is in installation art, you can check out my projects <span><a href="">here</a></span>. Besides coding, I love doing stuff and enjoying my time. I am an outdoor enthusiast, love all kinds of sports and building stuff. <br><br>
                     Clean, easy-to-read code for both humans and machines, strong emphasis on user experience, available for team and individual projects.
                 </p>
-                <a href="#contact" id="get-in-touch">get in touch</a>
-                <a href="" id="download-cv">download cv</a>
+                <div class="button">get in touch</div>
+                <div class="button">download cv</div>
             </div>
-            <!-- Scroll Arrow -->
-            <div id="scorll-arrow">
-                <svg width="35" height="379" viewBox="0 0 35 379" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8.5 364.787L21 376.912L33.5 364.787" stroke="black" stroke-opacity="0.45" stroke-width="2"/>
-                    <path d="M21.5635 145.738C21.2399 146.863 20.8434 147.684 20.374 148.199C19.9001 148.709 19.3167 148.964 18.624 148.964C17.8402 148.964 17.193 148.652 16.6826 148.028C16.1676 147.399 15.9102 146.583 15.9102 145.581C15.9102 144.897 16.0423 144.289 16.3066 143.755C16.571 143.218 16.9355 142.803 17.4004 142.511C17.8652 142.215 18.3734 142.067 18.9248 142.067L18.9248 143.386C18.3232 143.386 17.8516 143.578 17.5098 143.96C17.1634 144.343 16.9902 144.883 16.9902 145.581C16.9902 146.228 17.1338 146.733 17.4209 147.098C17.7035 147.458 18.0977 147.638 18.6035 147.638C19.0091 147.638 19.3532 147.467 19.6357 147.125C19.9137 146.779 20.1689 146.193 20.4014 145.369C20.6338 144.539 20.8913 143.892 21.1738 143.427C21.4518 142.958 21.7777 142.611 22.1514 142.388C22.5251 142.16 22.9648 142.046 23.4707 142.046C24.2773 142.046 24.9245 142.361 25.4121 142.99C25.8952 143.619 26.1367 144.459 26.1367 145.512C26.1367 146.196 26.0068 146.834 25.7471 147.426C25.4827 148.019 25.1227 148.477 24.667 148.8C24.2113 149.119 23.694 149.279 23.1152 149.279L23.1152 147.959C23.7168 147.959 24.193 147.738 24.5439 147.296C24.8903 146.85 25.0635 146.255 25.0635 145.512C25.0635 144.819 24.9222 144.289 24.6396 143.919C24.3571 143.55 23.972 143.366 23.4844 143.366C22.9967 143.366 22.6208 143.537 22.3564 143.878C22.0876 144.22 21.8232 144.84 21.5635 145.738ZM22.8418 124.637C23.8945 124.76 24.708 125.149 25.2822 125.806C25.8519 126.457 26.1367 127.325 26.1367 128.41C26.1367 129.586 25.7152 130.529 24.8721 131.24C24.029 131.946 22.901 132.3 21.4883 132.3L20.5312 132.3C19.6061 132.3 18.7926 132.136 18.0908 131.807C17.389 131.475 16.8512 131.005 16.4775 130.399C16.0993 129.793 15.9102 129.091 15.9102 128.294C15.9102 127.236 16.2064 126.389 16.7988 125.751C17.3867 125.113 18.2025 124.741 19.2461 124.637L19.2461 125.956C18.4531 126.07 17.8789 126.318 17.5234 126.701C17.168 127.079 16.9902 127.61 16.9902 128.294C16.9902 129.132 17.3001 129.791 17.9199 130.269C18.5397 130.743 19.4215 130.98 20.5654 130.98L21.5293 130.98C22.6094 130.98 23.4684 130.755 24.1064 130.304C24.7445 129.852 25.0635 129.221 25.0635 128.41C25.0635 127.681 24.8994 127.123 24.5713 126.735C24.2386 126.343 23.6621 126.083 22.8418 125.956L22.8418 124.637ZM21.9736 110.788L21.9736 113.126L26 113.126L26 114.446L16.0469 114.446L16.0469 111.151C16.0469 110.03 16.3021 109.168 16.8125 108.567C17.3229 107.961 18.0658 107.657 19.041 107.657C19.6608 107.657 20.2008 107.826 20.6611 108.163C21.1214 108.496 21.4655 108.961 21.6934 109.558L25.918 107.22L26 107.22L26 108.628L21.9736 110.788ZM20.9004 113.126L20.9004 111.11C20.9004 110.458 20.7318 109.941 20.3945 109.558C20.0573 109.17 19.6061 108.977 19.041 108.977C18.4258 108.977 17.9541 109.161 17.626 109.531C17.2978 109.895 17.1315 110.424 17.127 111.116L17.127 113.126L20.9004 113.126ZM21.3447 89.7555C22.32 89.7555 23.1722 89.9196 23.9014 90.2477C24.626 90.5758 25.1797 91.0407 25.5625 91.6422C25.9453 92.2438 26.1367 92.9456 26.1367 93.7477C26.1367 94.5315 25.9453 95.2265 25.5625 95.8327C25.1751 96.4388 24.626 96.9105 23.915 97.2477C23.1995 97.5804 22.3724 97.7513 21.4336 97.7604L20.7158 97.7604C19.7588 97.7604 18.9134 97.594 18.1797 97.2614C17.446 96.9287 16.8854 96.4593 16.498 95.8532C16.1061 95.2425 15.9102 94.5452 15.9102 93.7614C15.9102 92.9638 16.1038 92.262 16.4912 91.6559C16.874 91.0452 17.4323 90.5758 18.166 90.2477C18.8952 89.9196 19.7451 89.7555 20.7158 89.7555L21.3447 89.7555ZM20.7021 91.0612C19.5218 91.0612 18.6172 91.2982 17.9883 91.7721C17.3548 92.2461 17.0381 92.9092 17.0381 93.7614C17.0381 94.5908 17.3548 95.2448 17.9883 95.7233C18.6172 96.1972 19.4922 96.4411 20.6133 96.4547L21.3447 96.4547C22.4886 96.4547 23.3887 96.2155 24.0449 95.737C24.6966 95.2539 25.0225 94.5908 25.0225 93.7477C25.0225 92.9 24.7148 92.2438 24.0996 91.7789C23.4798 91.3141 22.5934 91.0748 21.4404 91.0612L20.7021 91.0612ZM24.9268 78.0674L24.9268 73.3506L26 73.3506L26 79.3868L16.0469 79.3868L16.0469 78.0674L24.9268 78.0674ZM24.9268 62.1342L24.9268 57.4174L26 57.4174L26 63.4536L16.0469 63.4536L16.0469 62.1342L24.9268 62.1342Z" fill="black" fill-opacity="0.45"/>
-                    <path d="M21 164.5L21 376.463" stroke="black" stroke-opacity="0.45" stroke-width="2"/>
-                </svg>   
-            </div>
-            <!-- Footer -->
+
+            
             <div class="footer"></div>
-        </section>
+        </section> 
+        <section class="skills"></section>
+        <section class="projects"></section>
+        <section class="contact"></section>
+        <!-- Footer -->
+        <footer>
+            <div class="icon-container">
+                <a title="Twitter" href="#"><i class="fab fa-twitter"></i></a>
+                <a title="Linked-In" href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a title="CodePen" href="#"><i class="fab fa-codepen"></i></a>
+                <a title="Open-Processing" href="#"><i class="fab fa-product-hunt"></i></a>  
+                <a title="Git-Hub" href="#"><i class="fab fa-github"></i></a>   
+            </div>
+        </footer>
+        
         <script src="./sketch.js" async defer></script>
         
     </body>
