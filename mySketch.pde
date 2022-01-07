@@ -7,13 +7,14 @@ float heroPosition = 0.7;
 int frameR = 60;
 int frameDiv = 400;
 
+
 void setup() {
-  size(window.innerWidth, window.innerHeight)
+  size(500,500);
 }
 
 void draw() {
-  size(window.innerWidth, window.innerHeight)
-  resize();
+  size(windowWidth, windowHeight);
+  positioning();
   frameRate(frameR);
   background(bg);
   translate(width * heroPosition, height / 2);
@@ -40,6 +41,7 @@ void draw() {
     }
     endShape(CLOSE);
   }
+  //println("width: " + windowWidth, "height :" + windowHeight);
 }
 
 void updateCntByMouse() {
@@ -70,7 +72,7 @@ color getColorByTheta(float theta, float time) {
   return color(r * rr, g * gg, b * bb, alpha);
 }
 
-void resize() {
+void positioning() {
     if (window.innerWidth < 700){
         MAX_CIRCLE_CNT = 1000;
         heroPosition =  0.5;
