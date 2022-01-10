@@ -104,8 +104,10 @@ function toggleNav() {
 function showPage(page) {
   for (all of sections) {
     all.style.zIndex = -1;
+    all.style.opacity = 0;
   }
   page.style.zIndex = 3;
+  page.style.opacity = 1;
   page === overlay ? footer.style.display= 'none' : footer.style.display= 'flex';
   page === skills ? canvas.classList.add('menu-on') : canvas.classList.remove('menu-on');
 }
