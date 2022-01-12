@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- keep the line below for OpenProcessing compatibility -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/processing.js/1.6.6/processing.min.js"></script>
-
+        <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"/>
         <link rel="stylesheet" href="./style.css">
     </head>
@@ -38,7 +38,7 @@
                             <li id="nav-1" class="slide-out-1"><a>home</a></li>
                             <li id="nav-2" class="slide-out-2"><a>about</a></li>
                             <li id="nav-3" class="slide-out-3"><a>skills</a></li>
-                            <li id="nav-4" class="slide-out-4"><a>projects</a></li>
+                            <li id="nav-4" class="slide-out-4"><a>work</a></li>
                             <li id="nav-5" class="slide-out-5"><a>contact</a></li>
                         </ul>
                     </div>
@@ -212,7 +212,6 @@
                     <h3 id="sub-title">selection of projects i built</h3>
                 </div>
                 <div class="project project1">
-                    
                     <div class="project-desc">
                         <h3 class="project-name">Project Name 1</h3>
                         <p class="project-sum">For when you need a break from your partner but already got a babysitter. Now couples can go to different events in similar locations and at the same time. A group programming project with Can Rozanes, Irene Truong and Jamie Yeung.</p>
@@ -220,17 +219,23 @@
                             <i title="HTML 5" class="fab fa-html5"></i>
                         </div>
                         <div class="project-buttons-container">
-                            <div class="button project-button">live project here</div>
-                            <div class="button project-button">view on github</div>
+                            <div class="button project-button" ><a target="_blank" href="https://barnabasvarszegi.com/pip/">live project here</a></div>
+                            <div class="button project-button" ><a target="_blank" href="https://github.com/vbrnbs/small-projects">view on github</a></div>
                         </div>
                     </div>
                     <div class="project-preview">
                         <div class="project-preview-mac">
-                            <video class="mac-video" src="./assets/project-sum/PiP.mp4"></video>
+                            <div class="video-background">
+                            </div>
                             <img class="project-preview-mac" src="./assets/mac.png" alt="phone-preview">
+                            <div class="mac-video">
+                                <video poster="" width="450" preload loop>
+                                    <source src="./assets/project-sum/PiP.mp4">
+                                </video>
+                            </div> 
                         </div>
                         <div class="project-preview-iphone">
-                            <img class="project-preview-iphone" src="./assets/iPhone.png" alt="phone-preview">
+                            <img class="project-preview-iphone" src="./assets/project-sum/PiP-Iphone.png" alt="phone-preview">
                         </div>
                     </div>
                     
@@ -244,19 +249,24 @@
                             <i title="HTML 5" class="fab fa-html5"></i>
                         </div>
                         <div class="project-buttons-container">
-                            <div class="button project-button">live project here</div>
-                            <div class="button project-button">view on github</div>
+                            <div class="button project-button" ><a target="_blank" href="https://barnabasvarszegi.com/bookmark/">live project here</a></div>
+                            <div class="button project-button" ><a target="_blank" href="https://github.com/vbrnbs/small-projects/tree/master/%2310-%20book-keeper">view on github</a></div>
                         </div>
                     </div>
                     <div class="project-preview">
                         <div class="project-preview-mac">
+                            <div class="video-background"></div>
                             <img class="project-preview-mac" src="./assets/mac.png" alt="phone-preview">
+                            <div class="mac-video">
+                                <video poster="" width="450" preload loop>
+                                    <source src="./assets/project-sum/bookmark.mp4">
+                                </video>
+                            </div> 
                         </div>
                         <div class="project-preview-iphone">
-                            <img class="project-preview-iphone" src="./assets/iPhone.png" alt="phone-preview">
+                            <img class="project-preview-iphone" src="./assets/project-sum/bookmark-mobile.png" alt="phone-preview">
                         </div>
                     </div>
-                    
                 </div>
                 <div class="project project3">
                     
@@ -267,20 +277,28 @@
                             <i title="HTML 5" class="fab fa-html5"></i>
                         </div>
                         <div class="project-buttons-container">
-                            <div class="button project-button">live project here</div>
-                            <div class="button project-button">view on github</div>
+                            <div class="button project-button" ><a target="_blank" href="https://barnabasvarszegi.com/joke/">live project here</a></div>
+                            <div class="button project-button" ><a target="_blank" href="https://github.com/vbrnbs/small-projects/tree/master/%234%20-%20joke-teller">view on github</a></div>
                         </div>
                     </div>
                     <div class="project-preview">
                         <div class="project-preview-mac">
+                            <div class="video-background"></div>
                             <img class="project-preview-mac" src="./assets/mac.png" alt="phone-preview">
+                            <div class="mac-video">
+                                <video poster="" width="450" preload loop>
+                                    <source src="./assets/project-sum/joke-teller.mp4">
+                                </video>
+                            </div> 
                         </div>
                         <div class="project-preview-iphone">
-                            <img class="project-preview-iphone" src="./assets/iPhone.png" alt="phone-preview">
+                            <img class="project-preview-iphone" src="./assets/project-sum/joke-mobile.png" alt="phone-preview">
                         </div>
                     </div>
                 </div>
-                <div id="more-projects" class="button">more projects</div>
+            </div>
+            <div class="more-projects">
+                <div id="more-projects" class="button"><a target="_blank" href="https://github.com/vbrnbs/small-projects/">more projects</a></div>
             </div>
         </section>
         <section class="contact"></section>

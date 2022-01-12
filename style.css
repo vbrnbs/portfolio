@@ -5,7 +5,7 @@
     --onbackground-primary: #3f4f53;
     --onbackground-secondary: #242d30;
     --text-primary: #000;
-    --text-secondary: #202020;
+    --text-secondary: #656565;
 }
 
 [data-theme="dark"] {
@@ -13,7 +13,7 @@
   --onbackground-primary: #dbdbdb;
   --onbackground-secondary: #C4C4C4;
   --text-primary: #fff;
-  --text-secondary: #f1f1f1;
+  --text-secondary: #9c9c9c;
 }
 
 body {
@@ -233,7 +233,6 @@ input:checked + .slider::before {
 /* Hamburger Icon */
 .hamburger-menu {
   height: 24px;
-  
 }
 
 .menu-bars {
@@ -246,7 +245,7 @@ input:checked + .slider::before {
 .bar1, .bar2, .bar3 {
     width: 35px;
     height: 5px;
-    background-color: var(--text-secondary);
+    background-color: var(--text-primary);
     margin: 6px 0;
     transition: 0.4s;
   }
@@ -277,7 +276,7 @@ footer {
   text-decoration: none;
 }
 .icon-container {
-  padding-right: 15px;
+  //padding-right: 45px;
 }
 
 .icon-container > a {
@@ -354,6 +353,8 @@ canvas, section {
   bottom: 5vh;
 }
 
+
+
 .button {
   display: inline-block;
   width: 45%;
@@ -364,9 +365,22 @@ canvas, section {
   font-family: 'Metrophobic', sans-serif;
   font-size: 1rem;
   font-weight: 700;
-  cursor: pointer;
+  vertical-align: middle;
 }
 
+a {
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+a:hover {
+  color: var(--text-secondary);
+}
+
+.button:active {
+  box-shadow: 0 5px var(--text-primary);
+  transform: translateY(4px);
+}
 /* SKILLS */
 
 
@@ -420,6 +434,7 @@ canvas, section {
 .projects {
   position: absolute;
   font-family: "Roboto", sans-serif;
+  color: var(--text-primary);
 }
 
 .project {
@@ -438,7 +453,7 @@ canvas, section {
   margin-left: 10vw;
   position: absolute;
   text-transform: uppercase;
-  font-size: 35px;
+  font-size: 2em;
 }
 
 .projects-title h3 {
@@ -475,22 +490,57 @@ canvas, section {
   position: absolute;
 }
 
-.project-preview-iphone {
+.project-preview-iphone img {
   position: relative;
   width: 134px;
-  left: 250px;
-  top: 60px;
+  left: 518px;
+  top: 135px;
 }
 
 .project-buttons-container {
-  display: inline-block;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
   margin-top: 2vh;
 }
 
 .project-button {
-  width: 8vw;
-  font-size: 12px;
+  width: auto;
+  font-size: 0.7em;
 }
+
+.video-background {
+  position: absolute;
+  left: 103px;
+  top: 55px;
+  width: 450px;
+  height: 306px;
+  background-color: black;
+}
+
+.mac-video {
+  position: absolute;
+  left: 103px;
+  top: 72px;
+  width: 450px;
+  transform: scaleY(1.06);
+}
+
+.play-button {
+  display: none;
+}
+.more-projects {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: 30vh;
+}
+#more-projects {
+  height: 1.2em;
+  width: 20%;
+}
+
+
 
 .contact {
   /*background-color: cyan;*/
@@ -507,12 +557,17 @@ canvas, section {
   transform: translate(50px,0);
 }
 
-@media only screen and (max-width:1360px) {
+@media screen and (min-width: 1360px) and (max-width:1600px) {
+  .project-desc{
+    width: 30%;
+    padding-right: 0;
+  }
+}
 
+@media only screen and (max-width:1360px) {
 .skills {
     position: absolute;
   }
-
 .about {    
     font-size: 1em;
   }
@@ -545,8 +600,68 @@ canvas, section {
 .skills-in-progress {
     z-index: 3;
   }
+  .project {
+    flex-flow: column;
+  }
+  
+  .project-desc {
+    order: 2;
+    width: 500px;
+  }
+  
+  .project-preview {
+    order: 1;
+    transform: translateY(50px);
+    width: 690px;
+  }
+  
+  .project-desc,
+  .project-preview {
+    padding: 10vh 0;
+  }
 }
 
+
+@media only screen and (max-width:801px) {
+  .projects-title{
+    margin-top: 90px;
+  }
+  .project-preview {
+    display: flex;
+    justify-content: center;
+    width: 450px;
+  }
+  video {
+    width: 292px;
+  }
+  .mac-video {
+    left: 68px;
+    top: 45px;
+  }
+  .project-preview-mac {
+    width: 450px;
+  }
+  .video-background {
+    left: 67px;
+    top: 36px;
+    width: 292px;
+    height: 186px;
+  }
+  .project-preview-iphone img {
+    width: 90px;
+    left: 159px;
+    top: 86px;
+  }
+  .project-desc {
+    width: 100%;
+  }
+  .button {
+    font-size: 0.6em;
+  }
+  #more-projects {
+    height: 2.5em;
+  }
+}
 
 @media only screen and (max-width:501px) {
   .intro {
@@ -603,5 +718,41 @@ canvas, section {
 
 .skills-icon p {
     margin: 0 0 3px 0;
+  }
+}
+
+@media only screen and (max-width:451px) {
+
+  video {
+    width: 239px;
+  }
+  .mac-video {
+    left: 56px;
+    top: 38px;
+    width: 239px;
+  }
+  .project-preview,
+  .project-preview-mac {
+    width: 370px;
+  }
+  .video-background {
+    left: 55px;
+    top: 24px;
+    width: 242px;
+    height: 172px;
+  }
+  .project-preview-iphone img {
+    width: 66px;
+    left: 133px;
+    top: 86px;
+  }
+  .project-desc {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width:400px) {
+  .projects-title {
+    display: none;
   }
 }
