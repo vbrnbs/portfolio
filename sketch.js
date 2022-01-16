@@ -27,6 +27,7 @@ let mousex = 200, mousey = 100;
 let background = true;
 
 // Pages Variables
+const loader = document.getElementById('loader');
 const wrapper = document.querySelector('.wrapper');
 const sections = document.getElementsByTagName("section");
 const about = document.querySelector('.about');
@@ -35,7 +36,7 @@ const projects = document.querySelector('.projects');
 const contact = document.querySelector('.contact');
 const footer = document.querySelector('footer');
 const svgElements = document.querySelectorAll('svg');
-const video = document.querySelector('video')
+const video = document.querySelectorAll('video')
 
 // Changing Theme
 function backgroundThemeSwitch() {
@@ -74,9 +75,9 @@ function toggleNav() {
   navOverlay.classList.toggle('nav-overlay-active');
   if (navOverlay.classList.contains('nav-overlay-active')) {  
       // Overlay change
-      canvas.classList.add("blur");// blur canvas - only on mobile 
+      canvas.classList.add("menu-on");// blur canvas - only on mobile 
       for (all of sections) {
-        all.classList.add('menu-on'); // blur all the sections on every screen
+        all.style.opacity = 0; // blur all the sections on every screen
       }
       // Set Navigation Visible
       document.querySelector('#nav-overlay').style.display= 'block';
@@ -88,9 +89,9 @@ function toggleNav() {
       navAnimation('out', 'in');
   } else {
       // Remove blur from background
-      canvas.classList.remove("blur");// remvoe blur canvas - only on mobile 
+      canvas.classList.remove("menu-on");// remvoe blur canvas - only on mobile 
       for (all of sections) {
-        all.classList.remove('menu-on'); // remvoe blur all the sections on every screen
+        all.style.opacity = 1; // remvoe blur all the sections on every screen
       }
       // Animate Out - Overlay
       navOverlay.classList.replace('nav-overlay-slide-right', 'nav-overlay-slide-left');
@@ -101,38 +102,39 @@ function toggleNav() {
       footer.style.justifyContent = 'flex-end';
   }
 }
-
+// Change visibility of active pages
 function showPage(page) {
   for (all of sections) {
+    // Disapear all pages
     all.style.zIndex = -1;
     all.style.opacity = 0;
   }
+  // Set selected page visible
   page.style.zIndex = 3;
   page.style.opacity = 1;
+  // If menu on dont display footer
   page === overlay ? footer.style.display= 'none' : footer.style.display= 'flex';
+  // if skills is active set processing canvas blured
   page === skills ? canvas.classList.add('menu-on') : canvas.classList.remove('menu-on');
+  // if work is active set scrollbar and overflow visible
+  page === projects ? document.querySelector('body').style.overflow='visible' : document.querySelector('body').style.overflow='hidden';
+  
 }
 
 
 //On Load
-// video.addEventListener("mouseenter", () => {
-//   console.log('video enter');
-// });
-
-// video.addEventListener("mouseleave", () => {
-//   console.log('video leave');
-// });
-
-// var figure = $(".mac-video").hover( hoverVideo, hideVideo );
-
-// function hoverVideo(e) {  
-//     $('video', this).get(0).play(); 
-// }
-
-// function hideVideo(e) {
-//     $('video', this).get(0).pause(); 
-// }
-
+// Play Video on Hover
+for (let i = 0; i < video.length; i++) {
+  video[i].addEventListener("mouseenter", () => {
+    console.log('video enter ');
+    video[i].play();
+  });
+  
+  video[i].addEventListener("mouseleave", () => {
+    console.log('video leave ');
+     video[i].pause();
+  });
+}
 // Mouse Tracking
 document.addEventListener("mousemove", () => {
   mousex = event.clientX; // Gets Mouse X
@@ -164,3 +166,9 @@ nav3.addEventListener('click', () => {showPage(skills)});
 nav4.addEventListener('click', () => {showPage(projects)});
 nav5.addEventListener('click', () => {showPage(contact)});
 
+window.addEventListener('load', function () {
+  setInterval(() => {
+    loader.hidden = true;
+  }, 500);
+  
+})

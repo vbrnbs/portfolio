@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- keep the line below for OpenProcessing compatibility -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/processing.js/1.6.6/processing.min.js"></script>
-        <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"/>
         <link rel="stylesheet" href="./style.css">
     </head>
@@ -46,6 +46,9 @@
             </div>
         </nav>
         <!-- HERO -->
+        <div class="loader" id="loader">
+            <img src="./assets/monkey.gif" alt="Loading">
+        </div>
         <!-- Hero Animaton Processing Canvas -->
         <canvas id="myCanvas" data-processing-sources="mySketch.pde"></canvas>
         <!-- # Home Introduction Overlay -->
@@ -128,7 +131,7 @@
                     </div>
                     <div class="skills-icon">
                             <h1 style="font-style: bold;" class="icon-diy"> {<span id="r-rest">R</span>}</h1>
-                            
+
                             <!-- <svg width="55" height="56" viewBox="0 0 55 56" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M27.6497 55.9919C20.4318 55.9168 13.5392 52.9778 8.48807 47.8213C3.4369 42.6647 0.640731 35.713 0.714561 28.4951C0.700711 21.2325 3.53055 14.2531 8.5983 9.05091C11.0729 6.50103 14.0343 4.47387 17.3068 3.08955C20.5793 1.70524 24.0964 0.991943 27.6497 0.991943C31.2029 0.991943 34.7201 1.70524 37.9926 3.08955C41.2651 4.47387 44.2264 6.50103 46.7011 9.05091C51.7688 14.2531 54.5986 21.2325 54.5848 28.4951C54.6586 35.713 51.8625 42.6647 46.8113 47.8213C41.7601 52.9778 34.8676 55.9168 27.6497 55.9919Z" fill="black"/>
                                 <path d="M19.5361 42.2729H18.7505C18.0579 42.2844 17.3665 42.2098 16.6922 42.051C16.0798 41.8791 15.5468 41.4983 15.1858 40.9747C14.751 40.3822 14.4745 39.6886 14.3825 38.9595C14.2524 37.8331 14.196 36.6994 14.2135 35.5656C14.2343 34.4589 14.1818 33.3521 14.0564 32.2523C13.9726 31.5831 13.6963 30.9526 13.261 30.4375C12.9995 30.1729 12.6843 29.9674 12.3367 29.835C11.9891 29.7025 11.6171 29.6461 11.2458 29.6695V27.3166C11.6171 27.34 11.9891 27.2836 12.3367 27.1512C12.6843 27.0187 12.9995 26.8132 13.261 26.5486C13.6963 26.0335 13.9726 25.403 14.0564 24.7339C14.1818 23.6341 14.2343 22.5272 14.2135 21.4205C14.1945 20.2848 14.2496 19.1492 14.3785 18.0207C14.4706 17.2916 14.7471 16.598 15.1818 16.0056C15.5429 15.4819 16.0759 15.1012 16.6883 14.9293C17.3625 14.7704 18.0539 14.6959 18.7466 14.7073H19.5322V16.9464H19.0883C18.0932 16.9464 17.4837 17.2082 17.2598 17.732C16.9465 19.1296 16.8327 20.5645 16.922 21.994C17.0251 23.5542 16.7445 25.1159 16.1049 26.5427C15.5668 27.4943 14.6757 28.1957 13.6243 28.495C14.1453 28.6385 14.6327 28.8834 15.0588 29.2157C15.4848 29.548 15.841 29.9612 16.1069 30.4316C16.7465 31.857 17.0277 33.4173 16.9259 34.9764C16.8367 36.4059 16.9504 37.8408 17.2637 39.2384C17.4889 39.7622 18.0985 40.0241 19.0923 40.0241H19.5361V42.2729ZM22.6786 36.1038H24.7114V29.3199H27.577L31.4462 36.1038H33.7717L29.6923 29.1C30.7425 28.9061 31.6865 28.3374 32.3488 27.4996C33.011 26.6617 33.3463 25.6119 33.2924 24.5453C33.2924 21.2064 30.9356 20.0397 27.685 20.0397H22.6885L22.6786 36.1038ZM24.7114 27.6583V21.6797H27.3806C29.8789 21.6797 31.2498 22.4379 31.2498 24.5453C31.2498 26.6527 29.875 27.6544 27.3806 27.6544L24.7114 27.6583ZM35.6257 14.7132H36.4114C37.104 14.7018 37.7954 14.7763 38.4697 14.9352C39.0821 15.107 39.615 15.4878 39.9761 16.0115C40.4109 16.6039 40.6874 17.2975 40.7794 18.0266C40.9084 19.155 40.9635 20.2907 40.9444 21.4264C40.9237 22.5331 40.9762 23.64 41.1015 24.7397C41.1853 25.4089 41.4617 26.0394 41.897 26.5545C42.1585 26.8191 42.4736 27.0246 42.8212 27.1571C43.1689 27.2895 43.5408 27.3459 43.9121 27.3225V29.6617C43.5408 29.6382 43.1689 29.6946 42.8212 29.8271C42.4736 29.9596 42.1585 30.165 41.897 30.4296C41.4617 30.9448 41.1853 31.5752 41.1015 32.2444C40.9762 33.3442 40.9237 34.4511 40.9444 35.5578C40.9635 36.6934 40.9084 37.8291 40.7794 38.9576C40.6874 39.6867 40.4109 40.3802 39.9761 40.9727C39.615 41.4963 39.0821 41.8771 38.4697 42.049C37.7954 42.2078 37.104 42.2824 36.4114 42.2709H35.6257V40.0319H36.0696C37.0647 40.0319 37.6742 39.77 37.8981 39.2463C38.2188 37.8471 38.3392 36.4095 38.2556 34.9764C38.1525 33.4162 38.433 31.8545 39.0727 30.4277C39.6082 29.4812 40.4976 28.7861 41.5454 28.495C40.4933 28.1961 39.6014 27.4947 39.0628 26.5427C38.4232 25.1159 38.1427 23.5542 38.2458 21.994C38.335 20.5645 38.2213 19.1296 37.908 17.732C37.6828 17.2082 37.0732 16.9464 36.0794 16.9464H35.6355L35.6257 14.7132Z" fill="white"/>
@@ -151,7 +154,7 @@
                         <i class="fab">
                             <svg width="40" height="55" viewBox="0 0 40 55" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M1.31541 35.9157L6.73515 1.05742C6.77403 0.79885 6.89351 0.559142 7.07658 0.372446C7.25965 0.185751 7.49697 0.0615925 7.75473 0.0176591C8.01249 -0.0262743 8.27754 0.0122586 8.51212 0.127768C8.7467 0.243278 8.93884 0.429871 9.06118 0.660966L14.8888 11.5944L1.31541 35.9157ZM39.8013 44.3764L34.6451 12.2934C34.6098 12.0666 34.5121 11.8542 34.363 11.6798C34.2138 11.5054 34.0191 11.3759 33.8006 11.3057C33.5822 11.2356 33.3485 11.2276 33.1257 11.2826C32.9029 11.3377 32.6998 11.4535 32.5391 11.6173L0 44.3787L18.0032 54.5239C18.5588 54.836 19.1854 55 19.8228 55C20.4601 55 21.0867 54.836 21.6423 54.5239L39.8013 44.3764ZM25.1715 16.3794L21.0007 8.39986C20.8954 8.19919 20.7373 8.03114 20.5434 7.91388C20.3495 7.79663 20.1273 7.73465 19.9007 7.73465C19.6741 7.73465 19.4518 7.79663 19.2579 7.91388C19.064 8.03114 18.9059 8.19919 18.8007 8.39986L0.490413 41.214L25.1715 16.3794Z" fill="black"/>
-                            </svg>   
+                            </svg>
                         </i>
                         <p class="skill">Firebase</p>
                     </div>
@@ -161,7 +164,7 @@
                                 <path d="M54.362 6.02868L42.9702 0.544178C42.3269 0.233991 41.603 0.13163 40.8989 0.251282C40.1947 0.370935 39.5453 0.706675 39.0405 1.21196L1.74948 35.2096C1.29703 35.6201 1.02619 36.1936 0.996551 36.8038C0.96691 37.414 1.18089 38.0111 1.59142 38.4635C1.64081 38.5169 1.69021 38.5682 1.74355 38.6156L4.78808 41.3816C5.18591 41.7437 5.698 41.955 6.2354 41.9788C6.7728 42.0026 7.30157 41.8375 7.72988 41.512L52.6471 7.45118C52.9864 7.19373 53.3908 7.03609 53.8148 6.99601C54.2388 6.95593 54.6655 7.035 55.047 7.22431C55.4285 7.41363 55.7496 7.70567 55.9742 8.06757C56.1987 8.42948 56.3177 8.84687 56.3179 9.27276V9.14039C56.3179 8.49019 56.1343 7.85321 55.7883 7.30273C55.4423 6.75225 54.9479 6.31063 54.362 6.02868V6.02868Z" fill="black"/>
                                 <path d="M54.362 49.3752L42.9702 54.8617C42.3267 55.171 41.603 55.2729 40.8991 55.1533C40.1952 55.0337 39.5458 54.6985 39.0405 54.1939L1.74948 20.1944C1.29703 19.7838 1.02619 19.2104 0.996551 18.6001C0.96691 17.9899 1.18089 17.3929 1.59142 16.9404C1.64081 16.8871 1.69021 16.8357 1.74355 16.7883L4.78808 14.0223C5.18632 13.6587 5.69957 13.4465 6.2383 13.4227C6.77703 13.3988 7.30702 13.5649 7.7358 13.8919L52.6471 47.9528C52.9864 48.2102 53.3908 48.3678 53.8148 48.4079C54.2388 48.448 54.6655 48.3689 55.047 48.1796C55.4285 47.9903 55.7496 47.6983 55.9742 47.3364C56.1987 46.9745 56.3177 46.5571 56.3179 46.1312V46.2734C56.3158 46.9219 56.1312 47.5567 55.7853 48.1052C55.4395 48.6537 54.9462 49.0938 54.362 49.3752V49.3752Z" fill="black"/>
                                 <path d="M42.9702 54.8617C42.3267 55.171 41.603 55.2729 40.8991 55.1533C40.1952 55.0337 39.5458 54.6985 39.0406 54.1939C39.3243 54.474 39.6843 54.664 40.0756 54.7403C40.4669 54.8166 40.8719 54.7757 41.24 54.6227C41.6082 54.4698 41.923 54.2116 42.145 53.8805C42.367 53.5494 42.4864 53.1602 42.4881 52.7616V2.64238C42.4885 2.24188 42.3699 1.8503 42.1475 1.51723C41.9251 1.18417 41.6089 0.924607 41.2388 0.771427C40.8688 0.618248 40.4616 0.578344 40.0689 0.656771C39.6761 0.735198 39.3155 0.928427 39.0327 1.21198C39.5375 0.706878 40.1868 0.371117 40.8908 0.251132C41.5948 0.131147 42.3186 0.232866 42.9623 0.542223L54.3521 6.01882C54.9399 6.29937 55.4363 6.74038 55.7841 7.29097C56.1319 7.84156 56.317 8.47927 56.3179 9.13053V46.2734C56.3181 46.9242 56.1344 47.5617 55.788 48.1126C55.4416 48.6635 54.9466 49.1053 54.36 49.3871L42.9702 54.8617Z" fill="black"/>
-                            </svg>    
+                            </svg>
                         </i>
                         <p class="skill">VS Code</p>
                     </div>
@@ -171,7 +174,7 @@
                                 <path d="M63.906 0.111084H4.67523C3.55316 0.111084 2.47704 0.556824 1.68362 1.35025C0.890198 2.14367 0.444458 3.21978 0.444458 4.34185V50.8803C0.444458 52.0024 0.890198 53.0785 1.68362 53.8719C2.47704 54.6653 3.55316 55.1111 4.67523 55.1111H63.906C65.0281 55.1111 66.1042 54.6653 66.8976 53.8719C67.691 53.0785 68.1368 52.0024 68.1368 50.8803V4.34185C68.1368 3.21978 67.691 2.14367 66.8976 1.35025C66.1042 0.556824 65.0281 0.111084 63.906 0.111084V0.111084ZM4.67523 4.34185H63.906V8.9957H4.67523V4.34185ZM4.67523 50.8803V12.3803H63.906V50.8803H4.67523Z" fill="black"/>
                                 <path d="M32.1752 38.188H44.8675V42.4188H32.1752V38.188Z" fill="black"/>
                                 <path d="M11.0214 22.7034L25.3848 29.3034L11.0214 35.8823V40.5361L31.3291 31.2073V27.3784L11.0214 18.0496V22.7034Z" fill="black"/>
-                            </svg>     
+                            </svg>
                         </i>
                         <p class="skill">Command Line</p>
                     </div>
@@ -213,10 +216,14 @@
                 </div>
                 <div class="project project1">
                     <div class="project-desc">
-                        <h3 class="project-name">Project Name 1</h3>
-                        <p class="project-sum">For when you need a break from your partner but already got a babysitter. Now couples can go to different events in similar locations and at the same time. A group programming project with Can Rozanes, Irene Truong and Jamie Yeung.</p>
+                        <h3 class="project-name">Picture-In-Picture Web App</h3>
+                        <p class="project-sum">It is a web application I created with the function using 'Picture-In-Picture' a tool to keep a minimized window with a content of your choice staying always on top!
+                            Whether it is a course that you follow, an Excel table that needs to stay on top, a YouTube video or any other program, you will not loose track of it.</p>
                         <div class="project-icons">
                             <i title="HTML 5" class="fab fa-html5"></i>
+                            <i title="CSS 3" class="fab fa-css3-alt"></i>
+                            <i title="JavaScript" class="fab fa-js-square"></i>
+                            <i title="REST API"><h1 class="work-icon-diy">{<span id="r-rest">R</span>}</h1></i>
                         </div>
                         <div class="project-buttons-container">
                             <div class="button project-button" ><a target="_blank" href="https://barnabasvarszegi.com/pip/">live project here</a></div>
@@ -232,21 +239,25 @@
                                 <video poster="" width="450" preload loop>
                                     <source src="./assets/project-sum/PiP.mp4">
                                 </video>
-                            </div> 
+                            </div>
                         </div>
                         <div class="project-preview-iphone">
                             <img class="project-preview-iphone" src="./assets/project-sum/PiP-Iphone.png" alt="phone-preview">
                         </div>
                     </div>
-                    
+
                 </div>
                 <div class="project project2">
-                    
+
                     <div class="project-desc">
-                        <h3 class="project-name">Project Name 1</h3>
-                        <p class="project-sum">For when you need a break from your partner but already got a babysitter. Now couples can go to different events in similar locations and at the same time. A group programming project with Can Rozanes, Irene Truong and Jamie Yeung.</p>
+                        <h3 class="project-name">Bookmark Web App</h3>
+                        <p class="project-sum">This project is a web application for saving bookmarks on the web.
+                            A pinterest-like website with the function of saving the site as a link, as well as to the local storage, so your bookmarks will be there when you use visit the page next time.</p>
                         <div class="project-icons">
                             <i title="HTML 5" class="fab fa-html5"></i>
+                            <i title="CSS 3" class="fab fa-css3-alt"></i>
+                            <i title="JavaScript" class="fab fa-js-square"></i>
+                            <i title="REST API"><h1 class="work-icon-diy">{<span id="r-rest">R</span>}</h1></i>
                         </div>
                         <div class="project-buttons-container">
                             <div class="button project-button" ><a target="_blank" href="https://barnabasvarszegi.com/bookmark/">live project here</a></div>
@@ -261,7 +272,7 @@
                                 <video poster="" width="450" preload loop>
                                     <source src="./assets/project-sum/bookmark.mp4">
                                 </video>
-                            </div> 
+                            </div>
                         </div>
                         <div class="project-preview-iphone">
                             <img class="project-preview-iphone" src="./assets/project-sum/bookmark-mobile.png" alt="phone-preview">
@@ -269,12 +280,18 @@
                     </div>
                 </div>
                 <div class="project project3">
-                    
+
                     <div class="project-desc">
-                        <h3 class="project-name">Project Name 1</h3>
-                        <p class="project-sum">For when you need a break from your partner but already got a babysitter. Now couples can go to different events in similar locations and at the same time. A group programming project with Can Rozanes, Irene Truong and Jamie Yeung.</p>
+                        <h3 class="project-name">Joke Teller: Text-to-Voice API</h3>
+                        <p class="project-sum">This project uses two APIs
+                            <br></br>
+                            - one that requests a nerd joke from a database<br>
+                            - VoiceRSS which enables to read out the joke</p>
                         <div class="project-icons">
                             <i title="HTML 5" class="fab fa-html5"></i>
+                            <i title="CSS 3" class="fab fa-css3-alt"></i>
+                            <i title="JavaScript" class="fab fa-js-square"></i>
+                            <i title="REST API"><h1 class="work-icon-diy">{<span id="r-rest">R</span>}</h1></i>
                         </div>
                         <div class="project-buttons-container">
                             <div class="button project-button" ><a target="_blank" href="https://barnabasvarszegi.com/joke/">live project here</a></div>
@@ -289,7 +306,7 @@
                                 <video poster="" width="450" preload loop>
                                     <source src="./assets/project-sum/joke-teller.mp4">
                                 </video>
-                            </div> 
+                            </div>
                         </div>
                         <div class="project-preview-iphone">
                             <img class="project-preview-iphone" src="./assets/project-sum/joke-mobile.png" alt="phone-preview">
@@ -301,7 +318,37 @@
                 <div id="more-projects" class="button"><a target="_blank" href="https://github.com/vbrnbs/small-projects/">more projects</a></div>
             </div>
         </section>
-        <section class="contact"></section>
+        <!-- CONTACT SECTION -->
+        <section class="contact">
+            <!-- Contact Container -->
+            <div class="contact-form" id="form">
+                <!-- Title & Sub-title -->
+				<div class="projects-title">
+					 <h3>CONTACT</h3>
+                     <h3 id="sub-title">open for collaboration</h3>
+                </div>
+                <!-- Contact Form Container -->
+                <div class="contact-form-container">
+                    <!-- Contact Form -->
+                    <form action="contact_form.php" method="post">
+						<label>Name</label>
+						    <input type="text" name="name" placeholder="Name" required>
+                            <div class="form-line"></div>
+						<label>Email</label>
+							<input type="text" name="email" placeholder="Email address" required>
+                            <div class="form-line"></div>
+						<label>Subject</label>
+							<input type="text" name="subject" placeholder="Subject" required>
+                            <div class="form-line"></div>
+						<label>Message</label>
+							<textarea name="message" placeholder="Message..."></textarea>
+                            <div class="form-line" id="message-line"></div>
+                        <!-- Submit button -->
+						<input class="button" id="form-button" type="submit" value="Send message">
+					</form>
+                </div>
+			</div>
+        </section>
         <!-- Footer -->
         <footer style="display: none;">
             <div class="icon-container">
